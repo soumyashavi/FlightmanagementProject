@@ -1,0 +1,33 @@
+﻿
+
+@{
+    ViewBag.Title = "welcome";
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+
+<div style="font-size:15px;color:black;font-weight:bold">
+    <h1>Note Down Your Booking Id For Future Use</h1>
+    <h2> <b>Your Booking Id Is  </b></h2>
+    <h1 style="font-size:25px;color:black;font-weight:bold">@ViewBag.id</h1>
+
+
+
+
+    <td style="font-size:50px">
+        @Html.ActionLink("click here", "welcome_Here", new { id = ViewBag.id, style = "color:red" })
+    </td>
+</div>
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+

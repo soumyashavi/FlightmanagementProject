@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FlightModel6StoreContainer" CdmEntityContainer="FlightEntities6">
+    <EntitySetMapping Name="netbankings">
+      <EntityTypeMapping TypeName="FlightModel6.netbanking">
+        <MappingFragment StoreEntitySet="netbanking">
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CVC" ColumnName="CVC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

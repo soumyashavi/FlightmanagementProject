@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlightModel8" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="upi1">
+    <Key>
+      <PropertyRef Name="UPI_Id" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UPI_Id" Type="Int32" Nullable="false" />
+    <Property Name="UPI_PIN" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="FlightEntities10" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="upi1" EntityType="Self.upi1" />
+  </EntityContainer>
+</Schema>

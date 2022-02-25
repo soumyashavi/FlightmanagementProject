@@ -1,0 +1,70 @@
+﻿@model IEnumerable<flight_project.Models.scheduleflight2>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+<p>
+    @using (Html.BeginForm("Search", "scheduleflight2", FormMethod.Get))
+    {<b style="font-size:18px;color:black;font-weight:bold"> Enter schdule Id</b>
+        @Html.TextBox("search") <input type="submit" value=" Search" />
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.airport1.AiportName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.airport11.AiportName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.airport1.AiportName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.airport11.AiportName)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ScduleId }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.ScduleId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.ScduleId })
+                </td>*@
+        </tr>
+    }
+
+</table>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>

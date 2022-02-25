@@ -1,0 +1,58 @@
+﻿@model flight_project.Models.scheduleflight2
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>scheduleflight2</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.airport1.AiportName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.airport1.AiportName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.airport11.AiportName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.airport11.AiportName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ScduleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

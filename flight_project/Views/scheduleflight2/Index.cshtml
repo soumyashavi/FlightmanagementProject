@@ -1,0 +1,64 @@
+﻿@model IEnumerable<flight_project.Models.scheduleflight2>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+<p>
+    @Html.ActionLink("Availbale Flights", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.airport1.AirportLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.airport11.AirportLocation)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.ScduleId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.airport1.AirportLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.airport11.AirportLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScduleId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ScduleId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ScduleId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ScduleId })
+        </td>
+    </tr>
+}
+
+</table>

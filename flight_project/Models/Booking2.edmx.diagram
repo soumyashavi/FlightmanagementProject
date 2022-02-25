@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0189258814bd420596074d5c13926d7a" Name="Diagram1">
+        <EntityTypeShape EntityType="FlightModel5.AddFlight" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlightModel5.airport1" Width="1.5" PointX="0.75" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlightModel5.Booking2" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlightModel5.Passenger1" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlightModel5.Registration" Width="1.5" PointX="3" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FlightModel5.scheduleflight2" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="FlightModel5.FK__Booking2__Destin__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="FlightModel5.FK__Booking2__Source__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="FlightModel5.FK__schedulef__Desti__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="FlightModel5.FK__schedulef__Sourc__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="FlightModel5.FK__Booking2__Confir__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="FlightModel5.FK__Booking2__Flight__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="FlightModel5.FK__Booking2__UserId__07C12930" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

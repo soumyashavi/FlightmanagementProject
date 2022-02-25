@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlightModel4.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Passenger1">
+    <Key>
+      <PropertyRef Name="PassengerId" />
+    </Key>
+    <Property Name="PassengerId" Type="int" Nullable="false" />
+    <Property Name="PassengerAge" Type="int" />
+    <Property Name="PassengerCount" Type="int" />
+    <Property Name="PassengerUIN" Type="bigint" />
+    <Property Name="Luggages" Type="int" />
+  </EntityType>
+  <EntityContainer Name="FlightModel4StoreContainer">
+    <EntitySet Name="Passenger1" EntityType="Self.Passenger1" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

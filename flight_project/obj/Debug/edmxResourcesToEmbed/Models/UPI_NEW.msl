@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FlightModel8StoreContainer" CdmEntityContainer="FlightEntities8">
+    <EntitySetMapping Name="UPIs">
+      <EntityTypeMapping TypeName="FlightModel8.UPI">
+        <MappingFragment StoreEntitySet="UPI">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UPI_Id" ColumnName="UPI_Id" />
+          <ScalarProperty Name="UPI_Pin" ColumnName="UPI_Pin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

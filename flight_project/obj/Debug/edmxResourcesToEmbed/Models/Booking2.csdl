@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlightModel5" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AddFlight">
+    <Key>
+      <PropertyRef Name="FlightId" />
+    </Key>
+    <Property Name="FlightId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FlightName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FlightModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FlightCarrier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="airport1">
+    <Key>
+      <PropertyRef Name="AirportLocation" />
+    </Key>
+    <Property Name="AiportName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AirportLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Booking2" Relationship="Self.FK__Booking2__Destin__0A9D95DB" FromRole="airport1" ToRole="Booking2" />
+    <NavigationProperty Name="Booking21" Relationship="Self.FK__Booking2__Source__09A971A2" FromRole="airport1" ToRole="Booking2" />
+    <NavigationProperty Name="scheduleflight2" Relationship="Self.FK__schedulef__Desti__4AB81AF0" FromRole="airport1" ToRole="scheduleflight2" />
+    <NavigationProperty Name="scheduleflight21" Relationship="Self.FK__schedulef__Sourc__49C3F6B7" FromRole="airport1" ToRole="scheduleflight2" />
+  </EntityType>
+  <EntityType Name="Booking2">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="FlightId" Type="Int64" />
+    <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmId" Type="Int32" />
+    <NavigationProperty Name="airport1" Relationship="Self.FK__Booking2__Destin__0A9D95DB" FromRole="Booking2" ToRole="airport1" />
+    <NavigationProperty Name="airport11" Relationship="Self.FK__Booking2__Source__09A971A2" FromRole="Booking2" ToRole="airport1" />
+    <NavigationProperty Name="Registration" Relationship="Self.FK__Booking2__Confir__0B91BA14" FromRole="Booking2" ToRole="Registration" />
+    <NavigationProperty Name="scheduleflight2" Relationship="Self.FK__Booking2__Flight__08B54D69" FromRole="Booking2" ToRole="scheduleflight2" />
+    <NavigationProperty Name="Passenger1" Relationship="Self.FK__Booking2__UserId__07C12930" FromRole="Booking2" ToRole="Passenger1" />
+  </EntityType>
+  <EntityType Name="Passenger1">
+    <Key>
+      <PropertyRef Name="PassengerId" />
+    </Key>
+    <Property Name="PassengerId" Type="Int32" Nullable="false" />
+    <Property Name="PassengerAge" Type="Int32" />
+    <Property Name="PassengerCount" Type="Int32" />
+    <Property Name="PassengerUIN" Type="Int64" />
+    <Property Name="Luggages" Type="Int32" />
+    <NavigationProperty Name="Booking2" Relationship="Self.FK__Booking2__UserId__07C12930" FromRole="Passenger1" ToRole="Booking2" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MobileNumber" Type="Int64" />
+    <NavigationProperty Name="Booking2" Relationship="Self.FK__Booking2__Confir__0B91BA14" FromRole="Registration" ToRole="Booking2" />
+  </EntityType>
+  <EntityType Name="scheduleflight2">
+    <Key>
+      <PropertyRef Name="ScduleId" />
+    </Key>
+    <Property Name="ScduleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SourceAirport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DestinationAirport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DepartureTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ArrivalTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TotalCost" Type="Int64" />
+    <NavigationProperty Name="airport1" Relationship="Self.FK__schedulef__Desti__4AB81AF0" FromRole="scheduleflight2" ToRole="airport1" />
+    <NavigationProperty Name="airport11" Relationship="Self.FK__schedulef__Sourc__49C3F6B7" FromRole="scheduleflight2" ToRole="airport1" />
+    <NavigationProperty Name="Booking2" Relationship="Self.FK__Booking2__Flight__08B54D69" FromRole="scheduleflight2" ToRole="Booking2" />
+  </EntityType>
+  <Association Name="FK__Booking2__Destin__0A9D95DB">
+    <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+    <End Role="Booking2" Type="Self.Booking2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airport1">
+        <PropertyRef Name="AirportLocation" />
+      </Principal>
+      <Dependent Role="Booking2">
+        <PropertyRef Name="Destination" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Booking2__Source__09A971A2">
+    <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+    <End Role="Booking2" Type="Self.Booking2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airport1">
+        <PropertyRef Name="AirportLocation" />
+      </Principal>
+      <Dependent Role="Booking2">
+        <PropertyRef Name="Source" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__schedulef__Desti__4AB81AF0">
+    <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+    <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airport1">
+        <PropertyRef Name="AirportLocation" />
+      </Principal>
+      <Dependent Role="scheduleflight2">
+        <PropertyRef Name="DestinationAirport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__schedulef__Sourc__49C3F6B7">
+    <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+    <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airport1">
+        <PropertyRef Name="AirportLocation" />
+      </Principal>
+      <Dependent Role="scheduleflight2">
+        <PropertyRef Name="SourceAirport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Booking2__Confir__0B91BA14">
+    <End Role="Registration" Type="Self.Registration" Multiplicity="0..1" />
+    <End Role="Booking2" Type="Self.Booking2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Booking2">
+        <PropertyRef Name="ConfirmId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Booking2__Flight__08B54D69">
+    <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="0..1" />
+    <End Role="Booking2" Type="Self.Booking2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="scheduleflight2">
+        <PropertyRef Name="ScduleId" />
+      </Principal>
+      <Dependent Role="Booking2">
+        <PropertyRef Name="FlightId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Booking2__UserId__07C12930">
+    <End Role="Passenger1" Type="Self.Passenger1" Multiplicity="0..1" />
+    <End Role="Booking2" Type="Self.Booking2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Passenger1">
+        <PropertyRef Name="PassengerId" />
+      </Principal>
+      <Dependent Role="Booking2">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FlightEntities5" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AddFlights" EntityType="Self.AddFlight" />
+    <EntitySet Name="airport1" EntityType="Self.airport1" />
+    <EntitySet Name="Booking2" EntityType="Self.Booking2" />
+    <EntitySet Name="Passenger1" EntityType="Self.Passenger1" />
+    <EntitySet Name="Registrations" EntityType="Self.Registration" />
+    <EntitySet Name="scheduleflight2" EntityType="Self.scheduleflight2" />
+    <AssociationSet Name="FK__Booking2__Destin__0A9D95DB" Association="Self.FK__Booking2__Destin__0A9D95DB">
+      <End Role="airport1" EntitySet="airport1" />
+      <End Role="Booking2" EntitySet="Booking2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Booking2__Source__09A971A2" Association="Self.FK__Booking2__Source__09A971A2">
+      <End Role="airport1" EntitySet="airport1" />
+      <End Role="Booking2" EntitySet="Booking2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__schedulef__Desti__4AB81AF0" Association="Self.FK__schedulef__Desti__4AB81AF0">
+      <End Role="airport1" EntitySet="airport1" />
+      <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__schedulef__Sourc__49C3F6B7" Association="Self.FK__schedulef__Sourc__49C3F6B7">
+      <End Role="airport1" EntitySet="airport1" />
+      <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Booking2__Confir__0B91BA14" Association="Self.FK__Booking2__Confir__0B91BA14">
+      <End Role="Registration" EntitySet="Registrations" />
+      <End Role="Booking2" EntitySet="Booking2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Booking2__Flight__08B54D69" Association="Self.FK__Booking2__Flight__08B54D69">
+      <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+      <End Role="Booking2" EntitySet="Booking2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Booking2__UserId__07C12930" Association="Self.FK__Booking2__UserId__07C12930">
+      <End Role="Passenger1" EntitySet="Passenger1" />
+      <End Role="Booking2" EntitySet="Booking2" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

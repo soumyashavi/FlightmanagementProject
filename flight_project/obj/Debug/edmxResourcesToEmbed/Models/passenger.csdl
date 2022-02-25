@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlightModel4" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Passenger1">
+    <Key>
+      <PropertyRef Name="PassengerId" />
+    </Key>
+    <Property Name="PassengerId" Type="Int32" Nullable="false" />
+    <Property Name="PassengerAge" Type="Int32" />
+    <Property Name="PassengerCount" Type="Int32" />
+    <Property Name="PassengerUIN" Type="Int64" />
+    <Property Name="Luggages" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="FlightEntities4" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Passenger1" EntityType="Self.Passenger1" />
+  </EntityContainer>
+</Schema>

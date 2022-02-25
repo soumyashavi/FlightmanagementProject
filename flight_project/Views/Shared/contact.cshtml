@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "contact";
+}
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Flight System</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+
+
+
+        body {
+            background-image: url('../../contact.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+</head>
+<body>
+    <h1 class="text-center" style="font-size:60px;color:black"><bold>Flight Management System</bold></h1>
+
+
+
+
+
+    <nav class=" navbar navbar-inverse">
+
+        <div class="navbar-header">
+
+
+            <ul class="nav navbar-nav">
+
+
+                <li style="font-size:x-large;color:white">@Html.ActionLink("Home", "Index", "Home")</li>
+                <li style="font-size:x-large">@Html.ActionLink("About", "About", "Home")</li>
+                <li style="font-size:x-large">@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li style="font-size:x-large">
+                    @Html.ActionLink("Register", "Register", "Home")
+                </li>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+
+
+
+                <li style="font-size:x-large">@Html.ActionLink("Login", "Login", "Home")</li>
+                <li style="font-size:x-large">@Html.ActionLink("Admin", "Admin", "Home")</li>
+
+
+            </ul>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="color:white;background-color:black;height:25px;font-size:20px"><bold>&copy; @DateTime.Now.Year -My Flight Reservation System</bold></p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+
+

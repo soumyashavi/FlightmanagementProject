@@ -1,0 +1,59 @@
+﻿@model IEnumerable<flight_project.Models.AddFlight>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+
+<p>
+    @using (Html.BeginForm("Search", "AddFlights", FormMethod.Get))
+    {<b style="font-size:18px;color:black;font-weight:bold"> Enter Flight Id</b>
+        @Html.TextBox("search") <input type="submit" value=" Search" />
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightCarrier)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightCarrier)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FlightId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FlightId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FlightId })
+            </td>
+        </tr>
+    }
+
+</table>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>

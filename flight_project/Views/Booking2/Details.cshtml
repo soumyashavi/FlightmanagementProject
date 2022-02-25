@@ -1,0 +1,131 @@
+﻿@model flight_project.Models.Booking2
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+<h2> Your Details</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Registration.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registration.UserId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Registration.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registration.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Registration.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registration.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Registration.MobileNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Registration.MobileNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Passenger1.Luggages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passenger1.Luggages)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passenger1.PassengerAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passenger1.PassengerAge)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Passenger1.PassengerUIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passenger1.PassengerUIN)
+        </dd>
+
+
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passenger1.PassengerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passenger1.PassengerId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.scheduleflight2.TotalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.scheduleflight2.TotalCost)
+        </dd>
+
+
+    </dl>
+</div>
+@*<button type="submit" value="Download" onclick="MyFun()" class="btn btn-primary">Download</button>*@
+
+@*<script>
+        function MyFun() {
+            alert("Press ctrl+p to download the ticket")
+        }
+    </script>*@
+
+
+
+<button title="print" onclick="myprint()" class="btn btn-primary">  print  </button>
+<script type="text/javascript">
+    function myprint() {
+        window.print();
+    }
+
+
+</script>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |
+    @*@Html.ActionLink("Back to List", "Index")*@
+</p>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<flight_project.Models.Booking2>
+
+@{
+    ViewBag.Title = "welcome_Here";
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+
+
+<p>
+    @Html.ActionLink("Hey!", "Create")
+</p>
+
+
+@*<p>
+        @using (Html.BeginForm("welcome_Here", "Booking2", FormMethod.Get))
+        {<b style="font-size:18px;color:black;font-weight:bold"> Enter Booking Id to complete the Payment</b>
+            @Html.TextBox("id") <input type="submit" value=" Search" class="btn btn-primary" />
+        }
+    </p>*@
+
+<tr>
+    <th>
+        @Html.DisplayNameFor(model => model.scheduleflight2.TotalCost)
+    </th>
+
+    <th></th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduleflight2.TotalCost)
+
+        </td>
+    </tr>
+}
+</br>
+</br>
+</br>
+<h4 style="color:darkblue">please click payment button to continue with the process</h4>
+</br>
+</br>
+
+<a href="~/netbankings/Payment" value="Book" class="btn btn-primary">Payment</a>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>

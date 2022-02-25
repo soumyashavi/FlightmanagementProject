@@ -1,0 +1,52 @@
+﻿@model IEnumerable<flight_project.Models.Passenger1>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PassengerAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassengerCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassengerUIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luggages)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassengerAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassengerCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassengerUIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Luggages)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PassengerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PassengerId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PassengerId })
+        </td>
+    </tr>
+}
+
+</table>

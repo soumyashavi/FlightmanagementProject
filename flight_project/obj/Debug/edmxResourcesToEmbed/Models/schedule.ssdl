@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FlightModel3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="airport1">
+    <Key>
+      <PropertyRef Name="AirportLocation" />
+    </Key>
+    <Property Name="AiportName" Type="nvarchar" MaxLength="50" />
+    <Property Name="AirportLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="scheduleflight2">
+    <Key>
+      <PropertyRef Name="ScduleId" />
+    </Key>
+    <Property Name="ScduleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SourceAirport" Type="nvarchar" MaxLength="50" />
+    <Property Name="DestinationAirport" Type="nvarchar" MaxLength="50" />
+    <Property Name="DepartureTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="ArrivalTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="TotalCost" Type="bigint" />
+  </EntityType>
+  <Association Name="FK__schedulef__Desti__4AB81AF0">
+    <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+    <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airport1">
+        <PropertyRef Name="AirportLocation" />
+      </Principal>
+      <Dependent Role="scheduleflight2">
+        <PropertyRef Name="DestinationAirport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__schedulef__Sourc__49C3F6B7">
+    <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+    <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airport1">
+        <PropertyRef Name="AirportLocation" />
+      </Principal>
+      <Dependent Role="scheduleflight2">
+        <PropertyRef Name="SourceAirport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FlightModel3StoreContainer">
+    <EntitySet Name="airport1" EntityType="Self.airport1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="scheduleflight2" EntityType="Self.scheduleflight2" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__schedulef__Desti__4AB81AF0" Association="Self.FK__schedulef__Desti__4AB81AF0">
+      <End Role="airport1" EntitySet="airport1" />
+      <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+    </AssociationSet>
+    <AssociationSet Name="FK__schedulef__Sourc__49C3F6B7" Association="Self.FK__schedulef__Sourc__49C3F6B7">
+      <End Role="airport1" EntitySet="airport1" />
+      <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

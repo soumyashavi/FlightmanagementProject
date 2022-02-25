@@ -1,0 +1,51 @@
+﻿@model flight_project.Models.Passenger1
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/View1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Passenger1</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PassengerAge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassengerAge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassengerCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassengerCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PassengerUIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PassengerUIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Luggages)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Luggages)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PassengerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

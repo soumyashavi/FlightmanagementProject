@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FlightModel3.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="airport1">
+          <Key>
+            <PropertyRef Name="AirportLocation" />
+          </Key>
+          <Property Name="AiportName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AirportLocation" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="scheduleflight2">
+          <Key>
+            <PropertyRef Name="ScduleId" />
+          </Key>
+          <Property Name="ScduleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SourceAirport" Type="nvarchar" MaxLength="50" />
+          <Property Name="DestinationAirport" Type="nvarchar" MaxLength="50" />
+          <Property Name="DepartureTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="ArrivalTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalCost" Type="bigint" />
+        </EntityType>
+        <Association Name="FK__schedulef__Desti__4AB81AF0">
+          <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+          <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport1">
+              <PropertyRef Name="AirportLocation" />
+            </Principal>
+            <Dependent Role="scheduleflight2">
+              <PropertyRef Name="DestinationAirport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulef__Sourc__49C3F6B7">
+          <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+          <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport1">
+              <PropertyRef Name="AirportLocation" />
+            </Principal>
+            <Dependent Role="scheduleflight2">
+              <PropertyRef Name="SourceAirport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FlightModel3StoreContainer">
+          <EntitySet Name="airport1" EntityType="Self.airport1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="scheduleflight2" EntityType="Self.scheduleflight2" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__schedulef__Desti__4AB81AF0" Association="Self.FK__schedulef__Desti__4AB81AF0">
+            <End Role="airport1" EntitySet="airport1" />
+            <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulef__Sourc__49C3F6B7" Association="Self.FK__schedulef__Sourc__49C3F6B7">
+            <End Role="airport1" EntitySet="airport1" />
+            <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FlightModel3" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="airport1">
+          <Key>
+            <PropertyRef Name="AirportLocation" />
+          </Key>
+          <Property Name="AiportName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AirportLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="scheduleflight2" Relationship="Self.FK__schedulef__Desti__4AB81AF0" FromRole="airport1" ToRole="scheduleflight2" />
+          <NavigationProperty Name="scheduleflight21" Relationship="Self.FK__schedulef__Sourc__49C3F6B7" FromRole="airport1" ToRole="scheduleflight2" />
+        </EntityType>
+        <EntityType Name="scheduleflight2">
+          <Key>
+            <PropertyRef Name="ScduleId" />
+          </Key>
+          <Property Name="ScduleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SourceAirport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DestinationAirport" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DepartureTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ArrivalTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalCost" Type="Int64" />
+          <NavigationProperty Name="airport1" Relationship="Self.FK__schedulef__Desti__4AB81AF0" FromRole="scheduleflight2" ToRole="airport1" />
+          <NavigationProperty Name="airport11" Relationship="Self.FK__schedulef__Sourc__49C3F6B7" FromRole="scheduleflight2" ToRole="airport1" />
+        </EntityType>
+        <Association Name="FK__schedulef__Desti__4AB81AF0">
+          <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+          <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport1">
+              <PropertyRef Name="AirportLocation" />
+            </Principal>
+            <Dependent Role="scheduleflight2">
+              <PropertyRef Name="DestinationAirport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__schedulef__Sourc__49C3F6B7">
+          <End Role="airport1" Type="Self.airport1" Multiplicity="0..1" />
+          <End Role="scheduleflight2" Type="Self.scheduleflight2" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="airport1">
+              <PropertyRef Name="AirportLocation" />
+            </Principal>
+            <Dependent Role="scheduleflight2">
+              <PropertyRef Name="SourceAirport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FlightEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="airport1" EntityType="Self.airport1" />
+          <EntitySet Name="scheduleflight2" EntityType="Self.scheduleflight2" />
+          <AssociationSet Name="FK__schedulef__Desti__4AB81AF0" Association="Self.FK__schedulef__Desti__4AB81AF0">
+            <End Role="airport1" EntitySet="airport1" />
+            <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+          </AssociationSet>
+          <AssociationSet Name="FK__schedulef__Sourc__49C3F6B7" Association="Self.FK__schedulef__Sourc__49C3F6B7">
+            <End Role="airport1" EntitySet="airport1" />
+            <End Role="scheduleflight2" EntitySet="scheduleflight2" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FlightModel3StoreContainer" CdmEntityContainer="FlightEntities3">
+          <EntitySetMapping Name="airport1">
+            <EntityTypeMapping TypeName="FlightModel3.airport1">
+              <MappingFragment StoreEntitySet="airport1">
+                <ScalarProperty Name="AiportName" ColumnName="AiportName" />
+                <ScalarProperty Name="AirportLocation" ColumnName="AirportLocation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="scheduleflight2">
+            <EntityTypeMapping TypeName="FlightModel3.scheduleflight2">
+              <MappingFragment StoreEntitySet="scheduleflight2">
+                <ScalarProperty Name="ScduleId" ColumnName="ScduleId" />
+                <ScalarProperty Name="SourceAirport" ColumnName="SourceAirport" />
+                <ScalarProperty Name="DestinationAirport" ColumnName="DestinationAirport" />
+                <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+                <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
